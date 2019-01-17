@@ -210,13 +210,16 @@ set (CVMFS_SHRINKWRAP_SOURCES
 # TODO(jblomer) Rename to cvmfs_server
 set (CVMFS_PUBLISH_SOURCES
   logging.cc
+  publish/cmd_help.cc
+  publish/cmd_zpipe.cc
   publish/command.cc
+  publish/except.cc
   publish/main.cc
   util/posix.cc
+  util/string.cc
 )
 
 set (LIBCVMFS_SERVER_SOURCES
-  publish/command.cc
   publish/repository.cc
   publish/settings.cc
 )
@@ -528,8 +531,8 @@ set (CVMFS2_CFLAGS "${CVMFS2_CFLAGS} -DCVMFS_CLIENT -D_FILE_OFFSET_BITS=64 -fexc
 set (CVMFS2_DEBUG_CFLAGS "${CVMFS2_DEBUG_CFLAGS} ${CVMFS2_CFLAGS} -D_FILE_OFFSET_BITS=64 -O0 -DDEBUGMSG")
 
 set (CVMFS_SWISSKNIFE_DEBUG_CFLAGS "${CVMFS_SWISSKNIFE_DEBUG_CFLAGS} -DDEBUGMSG -g -O0")
-set (CVMFS_PUBLISH "${CVMFS_PUBLISH_CFLAGS} -D_FILE_OFFSET_BITS=64 -fexceptions")
-set (LIBCVMFS_SERVER "${LIBCVMFS_SERVER_CFLAGS} -D_FILE_OFFSET_BITS=64 -fexceptions")
+set (CVMFS_PUBLISH_CFLAGS "${CVMFS_PUBLISH_CFLAGS} -D_FILE_OFFSET_BITS=64 -fexceptions")
+set (LIBCVMFS_SERVER_CFLAGS "${LIBCVMFS_SERVER_CFLAGS} -D_FILE_OFFSET_BITS=64 -fexceptions")
 
 set (CVMFS_FSCK_CFLAGS "${CVMFS_FSCK_CFLAGS} -DCVMFS_CLIENT")
 
