@@ -86,6 +86,8 @@ class IngestionMockUploader
   virtual std::string name() const { return "IngestionMockUploader"; }
   void ClearResults() { results.clear(); }
 
+  virtual bool Create() { return true; }
+
   upload::UploadStreamHandle *InitStreamedUpload(
     const CallbackTN *callback = NULL)
   {
